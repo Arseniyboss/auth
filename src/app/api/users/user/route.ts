@@ -11,7 +11,7 @@ export const GET = async (request: NextRequest) => {
   const user = await User.findById(decoded?.id)
 
   if (!user) {
-    return throwError({ error: 'User not found', status: 401 })
+    return throwError({ error: 'User not found', status: 404 })
   }
 
   return NextResponse.json(user)
