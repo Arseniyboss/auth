@@ -6,10 +6,10 @@ type User = {
   password: string
 }
 
-export const register = async ({ name, email, password }: User) => {
+export const register = async (user: User) => {
   const response = await fetch(`${BASE_URL}/api/users/register`, {
     method: 'POST',
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify(user),
   })
   return response
 }

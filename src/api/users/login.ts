@@ -5,10 +5,10 @@ type UserCredentials = {
   password: string
 }
 
-export const login = async ({ email, password }: UserCredentials) => {
+export const login = async (userCredentials: UserCredentials) => {
   const response = await fetch(`${BASE_URL}/api/users/login`, {
     method: 'POST',
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(userCredentials),
   })
   return response
 }
